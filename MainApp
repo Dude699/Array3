@@ -11,7 +11,7 @@ public class MainApp {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-        System.out.println("Bai 2");
+        System.out.println("Bai 1");
 		
 		int []a1 = new int[10];
 		
@@ -21,23 +21,20 @@ public class MainApp {
 		System.out.println("Cau b");
 		tong(a1);
 		System.out.println("Cau c");
-		demSoNguyen(a1);
+		demSoNguyenTo(a1);
 		System.out.println("Cau d");
 		demSoPolinom(a1);
 
 		}
 
-	
-	
-	
 
-	private static void demSoPolinom(int[] a1) {
-		int dem = 0;
+	private static void demSoPolinom(int [] a1) {
+		int count = 0;
 		for(int i = 0; i< a1.length; i++) {
-			if(isPrimary(a1[i]))
-				dem++;
-	}
-		System.out.format("dd", dem).println();
+			if(soPolinom(a1[i])) {
+				count++;
+	}}
+		System.out.format("mang co %d so polinom", count).println();
 	}
 
 
@@ -54,7 +51,6 @@ public class MainApp {
 
 
 	private static void print(int[] a) {
-//		System.out.println("Mang a");
 		for (int i = 0; i < a.length; i++) {
 			System.out.format("%d ",a[i]).print("\t");
 		}
@@ -69,13 +65,13 @@ public class MainApp {
 		}
 		
 	}
-	private static void demSoNguyen(int[] a)  {
+	private static void demSoNguyenTo(int[] a)  {
 		int dem = 0;
 		for (int i = 0; i < a.length; i++) {
 			if(isPrimary(a[i]))
 				dem++;
 		}
-		System.out.format("Mang co %d so nguyen to", dem).println();
+		System.out.format("Mang co %d so nguyen", dem).println();
 		}
 
 	private static int ramdomInteger(int min, int max) {
@@ -89,4 +85,17 @@ public class MainApp {
 		}
 		return true;
 	}
+	
+	public static boolean soPolinom(int n) {
+		int n1 = n;
+		int reversed = 0;
+		while (n != 0) {
+			int digit = n % 10;
+			reversed = reversed * 10 + digit;
+			n /= 10;
+			if (reversed == n1) return true;
+		}
+		return false;
+		}
+		
 }
